@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elam and Son's Handyman Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2744;
+    --navy-deep: #0f1a2e;
+    --navy-light: #2a3d5c;
+    --orange: #e8611a;
+    --orange-bright: #f47b3a;
+    --orange-dark: #c4500f;
+    --steel: #b8bcc4;
+    --steel-light: #d4d7dc;
+    --steel-dark: #8a8f98;
+    --white: #f5f6f7;
+    --off-white: #eaecef;
+    --text: #1a1e24;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    color: var(--text);
+    background: var(--off-white);
+    overflow-x: hidden;
+  }
+
+  /* ─── BRUSHED METAL TEXTURE ─── */
+  .metal-bg {
+    background:
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.03) 1px,
+        transparent 2px
+      ),
+      linear-gradient(180deg, #c8ccd4 0%, #a8adb6 30%, #bcc0c8 60%, #9ea3ac 100%);
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(15, 26, 46, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 3px solid var(--orange);
+    transition: all 0.3s ease;
+  }
+
+  nav .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+
+  nav .logo-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    color: var(--white);
+    letter-spacing: 1px;
+  }
+
+  nav .logo-text span { color: var(--orange); }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+  }
+
+  nav ul li a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--steel-light);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: color 0.2s;
+    position: relative;
+  }
+
+  nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--orange);
+    transition: width 0.3s ease;
+  }
+
+  nav ul li a:hover { color: var(--orange); }
+  nav ul li a:hover::after { width: 100%; }
+
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 8px;
+  }
+
+  .mobile-toggle span {
+    width: 28px;
+    height: 3px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: var(--navy-deep);
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.015) 1px,
+        transparent 3px
+      ),
+      radial-gradient(ellipse at 70% 50%, rgba(232, 97, 26, 0.12) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(26, 39, 68, 0.8) 0%, transparent 50%);
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(232, 97, 26, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(232, 97, 26, 0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.6;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 24px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero-text h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    color: var(--white);
+    line-height: 0.95;
+    margin-bottom: 24px;
+  }
+
+  .hero-text h1 .orange { color: var(--orange); }
+
+  .hero-text p {
+    font-size: 1.15rem;
+    color: var(--steel);
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 36px;
+  }
+
+  .hero-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-logo img {
+    width: 100%;
+    max-width: 440px;
+    border-radius: 12px;
+    box-shadow:
+      0 20px 60px rgba(0,0,0,0.4),
+      0 0 0 1px rgba(232, 97, 26, 0.2);
+    animation: floatIn 1s ease-out 0.3s both;
+  }
+
+  @keyframes floatIn {
+    from { opacity: 0; transform: translateY(30px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .cta-group { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 32px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary {
+    background: var(--orange);
+    color: var(--white);
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  }
+
+  .btn-primary:hover {
+    background: var(--orange-bright);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(232, 97, 26, 0.35);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--steel-dark);
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  }
+
+  .btn-outline:hover {
+    border-color: var(--orange);
+    color: var(--orange);
+    transform: translateY(-2px);
+  }
+
+  /* ─── SECTION BASICS ─── */
+  section { padding: 100px 24px; }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .section-header .tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--orange);
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .section-header h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.4rem, 4vw, 3.5rem);
+    color: var(--navy);
+    line-height: 1;
+  }
+
+  .section-header h2.light { color: var(--white); }
+
+  .section-header .line {
+    width: 60px;
+    height: 4px;
+    background: var(--orange);
+    margin: 16px auto 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ─── SERVICES ─── */
+  .services {
+    background: var(--white);
+    position: relative;
+  }
+
+  .services::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy), var(--orange), var(--navy));
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .service-card {
+    background: var(--off-white);
+    border: 1px solid rgba(26, 39, 68, 0.08);
+    padding: 36px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    cursor: default;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: var(--orange);
+    transition: height 0.4s ease;
+  }
+
+  .service-card:hover::before { height: 100%; }
+
+  .service-card:hover {
+    background: var(--white);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px rgba(26, 39, 68, 0.1);
+  }
+
+  .service-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    font-size: 1.5rem;
+  }
+
+  .service-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+
+  .service-card p {
+    color: var(--steel-dark);
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  /* ─── WHY US ─── */
+  .why-us {
+    background: var(--navy-deep);
+    position: relative;
+  }
+
+  .why-us::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        rgba(232, 97, 26, 0.02) 1px,
+        transparent 2px
+      );
+  }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .stat-card {
+    text-align: center;
+    padding: 32px 16px;
+    border: 1px solid rgba(232, 97, 26, 0.15);
+    background: rgba(255,255,255,0.03);
+  }
+
+  .stat-card .number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    color: var(--orange);
+    line-height: 1;
+  }
+
+  .stat-card .label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--steel);
+    margin-top: 8px;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .feature {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .feature-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border: 2px solid var(--orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--orange);
+  }
+
+  .feature h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .feature p {
+    color: var(--steel);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  /* ─── TESTIMONIALS ─── */
+  .testimonials {
+    background: var(--white);
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 24px;
+  }
+
+  .testimonial-card {
+    background: var(--off-white);
+    padding: 32px;
+    border-left: 4px solid var(--orange);
+    position: relative;
+  }
+
+  .testimonial-card .quote {
+    font-size: 2rem;
+    color: var(--orange);
+    font-family: Georgia, serif;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .testimonial-card p {
+    color: var(--navy-light);
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 16px;
+  }
+
+  .testimonial-card .author {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.85rem;
+    color: var(--navy);
+    font-style: normal;
+  }
+
+  .stars { color: var(--orange); margin-bottom: 12px; letter-spacing: 2px; }
+
+  /* ─── CTA ─── */
+  .cta-section {
+    background: var(--orange);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 20px,
+        rgba(255,255,255,0.03) 20px,
+        rgba(255,255,255,0.03) 40px
+      );
+  }
+
+  .cta-section h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--white);
+    position: relative;
+    z-index: 1;
+    margin-bottom: 16px;
+  }
+
+  .cta-section p {
+    color: rgba(255,255,255,0.9);
+    font-size: 1.15rem;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 32px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-white {
+    background: var(--white);
+    color: var(--navy);
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn-white:hover {
+    background: var(--navy);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  }
+
+  /* ─── CONTACT ─── */
+  .contact {
+    background: var(--navy-deep);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact-info h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+
+  .contact-item {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .contact-item .icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(232, 97, 26, 0.15);
+    border: 1px solid rgba(232, 97, 26, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+  }
+
+  .contact-item .details .label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.75rem;
+    color: var(--orange);
+    margin-bottom: 2px;
+  }
+
+  .contact-item .details .value {
+    color: var(--steel-light);
+    font-size: 1rem;
+  }
+
+  .contact-item .details a {
+    color: var(--steel-light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-item .details a:hover { color: var(--orange); }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .form-row { display: flex; gap: 16px; }
+
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form select {
+    width: 100%;
+    padding: 14px 16px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.95rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--white);
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus,
+  .contact-form select:focus {
+    border-color: var(--orange);
+  }
+
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    color: var(--steel-dark);
+  }
+
+  .contact-form select { color: var(--steel-dark); }
+  .contact-form select option { background: var(--navy-deep); color: var(--white); }
+
+  .contact-form textarea { height: 120px; resize: vertical; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #0a1120;
+    padding: 32px 24px;
+    text-align: center;
+    border-top: 3px solid var(--orange);
+  }
+
+  footer p {
+    color: var(--steel-dark);
+    font-size: 0.85rem;
+  }
+
+  footer p span { color: var(--orange); }
+
+  /* ─── ANIMATIONS ─── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .hero-content { grid-template-columns: 1fr; text-align: center; }
+    .hero-text p { margin-left: auto; margin-right: auto; }
+    .cta-group { justify-content: center; }
+    .hero-logo { order: -1; }
+    .hero-logo img { max-width: 300px; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .contact-grid { grid-template-columns: 1fr; }
+    .form-row { flex-direction: column; }
+  }
+
+  @media (max-width: 640px) {
+    nav ul { display: none; }
+    nav ul.active {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: rgba(15, 26, 46, 0.98);
+      padding: 24px;
+      gap: 20px;
+      border-bottom: 3px solid var(--orange);
+    }
+    .mobile-toggle { display: flex; }
+    .stats-row { grid-template-columns: 1fr 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo-text">Elam <span>and Son's</span></div>
+    <ul id="navMenu">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why-us">About</a></li>
+      <li><a href="#our-promise">Our Promise</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="mobile-toggle" onclick="document.getElementById('navMenu').classList.toggle('active')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>YOUR HOME.<br><span class="orange">OUR CRAFT.</span></h1>
+      <p>From small repairs to major upgrades, Elam and Son's delivers dependable, quality handyman work you can trust. Serving our community with pride — one project at a time.</p>
+      <div class="cta-group">
+        <a href="#contact" class="btn btn-primary">Get a Free Estimate</a>
+        <a href="#services" class="btn btn-outline">Our Services</a>
+      </div>
+    </div>
+    <div class="hero-logo">
+      <img src="logo.jpg" alt="Elam and Son's Handyman Services Logo">
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ─── -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="tag">What We Do</span>
+      <h2>Our Services</h2>
+      <div class="line"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon">🔨</div>
+        <h3>General Repairs</h3>
+        <p>Drywall patching, door adjustments, trim work, and all those around-the-house fixes that need a skilled hand.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🔧</div>
+        <h3>Plumbing</h3>
+        <p>Faucet replacements, toilet repairs, pipe fixes, and minor plumbing work to keep everything flowing smoothly.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">⚡</div>
+        <h3>Electrical</h3>
+        <p>Light fixture installation, outlet replacement, ceiling fan mounting, and basic electrical updates.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🏠</div>
+        <h3>Exterior Work</h3>
+        <p>Deck repairs, fence mending, gutter maintenance, siding touch-ups, and power washing to boost curb appeal.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🪚</div>
+        <h3>Carpentry</h3>
+        <p>Custom shelving, cabinet repairs, furniture assembly, and woodworking projects built to last.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🎨</div>
+        <h3>Painting</h3>
+        <p>Interior and exterior painting, staining, wallpaper removal, and surface preparation for a flawless finish.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHY US ─── -->
+<section class="why-us" id="why-us">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="tag">Why Choose Us</span>
+      <h2 class="light">Built on Trust</h2>
+      <div class="line"></div>
+    </div>
+    <div class="stats-row">
+      <div class="stat-card fade-up">
+        <div class="number">FREE</div>
+        <div class="label">Estimates</div>
+      </div>
+      <div class="stat-card fade-up">
+        <div class="number">24hr</div>
+        <div class="label">Response Time</div>
+      </div>
+      <div class="stat-card fade-up">
+        <div class="number">2-MAN</div>
+        <div class="label">Father & Son Team</div>
+      </div>
+      <div class="stat-card fade-up">
+        <div class="number">100%</div>
+        <div class="label">Satisfaction Guarantee</div>
+      </div>
+    </div>
+    <div class="features-grid">
+      <div class="feature fade-up">
+        <div class="feature-icon">✓</div>
+        <div>
+          <h3>Licensed & Insured</h3>
+          <p>Full coverage for your peace of mind. We protect your home like it's our own.</p>
+        </div>
+      </div>
+      <div class="feature fade-up">
+        <div class="feature-icon">✓</div>
+        <div>
+          <h3>Transparent Pricing</h3>
+          <p>Honest quotes with no hidden fees. You'll know exactly what you're paying before work begins.</p>
+        </div>
+      </div>
+      <div class="feature fade-up">
+        <div class="feature-icon">✓</div>
+        <div>
+          <h3>Family Operated</h3>
+          <p>A father-and-son team that brings old-school work ethic to every job, big or small.</p>
+        </div>
+      </div>
+      <div class="feature fade-up">
+        <div class="feature-icon">✓</div>
+        <div>
+          <h3>Clean & Respectful</h3>
+          <p>We treat every home with care — showing up on time, working clean, and leaving things better than we found them.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── OUR PROMISE ─── -->
+<section class="testimonials" id="our-promise">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="tag">New Business, Old-School Values</span>
+      <h2>Our Promise to You</h2>
+      <div class="line"></div>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card fade-up">
+        <div class="stars">🔨</div>
+        <div class="quote">"</div>
+        <p>We're a brand-new business, but we're not new to the work. With years of hands-on experience, we're ready to earn your trust — one project at a time.</p>
+        <div class="author">— Built on Experience</div>
+      </div>
+      <div class="testimonial-card fade-up">
+        <div class="stars">🤝</div>
+        <div class="quote">"</div>
+        <p>Every first customer is a chance to prove ourselves. We'll go above and beyond because your satisfaction is how we build our reputation.</p>
+        <div class="author">— Earning Your Trust</div>
+      </div>
+      <div class="testimonial-card fade-up">
+        <div class="stars">⭐</div>
+        <div class="quote">"</div>
+        <p>Be one of our first customers and see the difference a family-run team makes. We treat every home like our own — no shortcuts, no excuses.</p>
+        <div class="author">— Your Satisfaction, Guaranteed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to Fix It Right?</h2>
+    <p>Get a free, no-obligation estimate for your next project. We're just a call away.</p>
+    <a href="tel:+15551234567" class="btn btn-white">📞 Call Now</a>
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="tag">Get In Touch</span>
+      <h2 class="light">Request a Free Estimate</h2>
+      <div class="line"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info fade-up">
+        <h3>Let's Talk About Your Project</h3>
+        <div class="contact-item">
+          <div class="icon">📞</div>
+          <div class="details">
+            <div class="label">Phone</div>
+            <div class="value"><a href="tel:+15551234567">(555) 123-4567</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon">✉️</div>
+          <div class="details">
+            <div class="label">Email</div>
+            <div class="value"><a href="mailto:info@elamandsons.com">info@elamandsons.com</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon">📍</div>
+          <div class="details">
+            <div class="label">Service Area</div>
+            <div class="value">Serving the greater community and surrounding areas</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon">🕐</div>
+          <div class="details">
+            <div class="label">Hours</div>
+            <div class="value">Mon–Fri: 7AM–6PM &nbsp;|&nbsp; Sat: 8AM–2PM</div>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form fade-up" onsubmit="event.preventDefault(); alert('Thank you! We\'ll be in touch within 24 hours.');">
+        <div class="form-row">
+          <input type="text" placeholder="Your Name" required>
+          <input type="tel" placeholder="Phone Number" required>
+        </div>
+        <input type="email" placeholder="Email Address">
+        <select>
+          <option value="" disabled selected>What do you need help with?</option>
+          <option>General Repairs</option>
+          <option>Plumbing</option>
+          <option>Electrical</option>
+          <option>Exterior Work</option>
+          <option>Carpentry</option>
+          <option>Painting</option>
+          <option>Other</option>
+        </select>
+        <textarea placeholder="Tell us about your project..."></textarea>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send Request</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <p>© 2026 <span>Elam and Son's Handyman Services</span>. All rights reserved.</p>
+</footer>
+
+<script>
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Close mobile menu on link click
+  document.querySelectorAll('#navMenu a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.getElementById('navMenu').classList.remove('active');
+    });
+  });
+</script>
+
+</body>
+</html>
