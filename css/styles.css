@@ -661,6 +661,173 @@
 
   .contact-form textarea { height: 120px; resize: vertical; }
 
+  /* ─── ABOUT SUMMARY ─── */
+  .about-summary {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 48px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .about-summary p {
+    color: var(--steel);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  /* ─── SERVICES EXTENDED ─── */
+  .services-extended {
+    margin-top: 48px;
+    padding: 32px;
+    background: var(--off-white);
+    border-left: 4px solid var(--orange);
+  }
+
+  .services-extended h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+
+  .services-extended p {
+    color: var(--steel-dark);
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
+  /* ─── SERVICE AREAS ─── */
+  .service-areas {
+    background: var(--navy-deep);
+    position: relative;
+  }
+
+  .service-areas-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .service-areas-content p {
+    color: var(--steel);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  .service-areas-content .orange-link {
+    color: var(--orange);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+
+  .service-areas-content .orange-link:hover {
+    color: var(--orange-bright);
+  }
+
+  .areas-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px 24px;
+    margin-bottom: 32px;
+    text-align: left;
+  }
+
+  .areas-list li {
+    color: var(--steel-light);
+    font-size: 1rem;
+    padding: 8px 0 8px 20px;
+    position: relative;
+    border-bottom: 1px solid rgba(232, 97, 26, 0.1);
+  }
+
+  .areas-list li::before {
+    content: '▸';
+    color: var(--orange);
+    position: absolute;
+    left: 0;
+    font-size: 0.9rem;
+  }
+
+  /* ─── FAQ ─── */
+  .faq-section {
+    background: var(--white);
+  }
+
+  .faq-grid {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .faq-item {
+    background: var(--off-white);
+    border: 1px solid rgba(26, 39, 68, 0.08);
+    transition: all 0.3s ease;
+  }
+
+  .faq-item[open] {
+    border-left: 4px solid var(--orange);
+  }
+
+  .faq-item summary {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--navy);
+    padding: 20px 24px;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    transition: color 0.2s;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::after {
+    content: '+';
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    color: var(--orange);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item[open] summary::after {
+    content: '−';
+  }
+
+  .faq-item summary:hover {
+    color: var(--orange);
+  }
+
+  .faq-answer {
+    padding: 0 24px 20px;
+  }
+
+  .faq-answer p {
+    color: var(--steel-dark);
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
   /* ─── FOOTER ─── */
   footer {
     background: #0a1120;
