@@ -63,7 +63,6 @@
   "logo": "https://elamandsonsrepair.com/logo.jpg",
   "image": "https://elamandsonsrepair.com/og-image.jpg",
   "telephone": "(262) 220-2325",
-  "email": "info@elamandsonsrepair.com",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Kenosha",
@@ -216,7 +215,7 @@
       "name": "Do you offer free estimates for handyman work in Kenosha?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, Elam and Son's provides free, no-obligation estimates for all handyman work in the Kenosha area. Just give us a call at (262) 220-2325 or fill out our online contact form, and we'll get back to you within 24 hours."
+        "text": "Yes, Elam and Son's provides free, no-obligation estimates for all handyman work in the Kenosha area. Just give us a call at (262) 220-2325 and we'll get back to you within 24 hours."
       }
     },
     {
@@ -649,7 +648,7 @@
       <details class="faq-item fade-up">
         <summary>Do you offer free estimates for handyman work in Kenosha?</summary>
         <div class="faq-answer">
-          <p>Yes, Elam and Son's provides free, no-obligation estimates for all handyman work in the Kenosha area. Just give us a call at (262) 220-2325 or fill out our online contact form, and we'll get back to you within 24 hours.</p>
+          <p>Yes, Elam and Son's provides free, no-obligation estimates for all handyman work in the Kenosha area. Just give us a call at (262) 220-2325 and we'll get back to you within 24 hours.</p>
         </div>
       </details>
       <details class="faq-item fade-up">
@@ -730,7 +729,8 @@
       <h2 id="contact-heading" class="light">Request a Free Estimate</h2>
       <div class="line"></div>
     </div>
-    <div class="contact-grid">
+    <!-- Form commented out — not yet configured. Contact info centered to fill layout. -->
+    <div class="contact-grid" style="grid-template-columns: 1fr; max-width: 560px; margin-left: auto; margin-right: auto;">
       <div class="contact-info fade-up">
         <h3>Let's Talk About Your Project</h3>
         <!-- SEO/AEO Optimization: <address> element provides semantic NAP markup for local SEO -->
@@ -742,13 +742,7 @@
               <div class="value"><a href="tel:+12622202325">(262) 220-2325</a></div>
             </div>
           </div>
-          <div class="contact-item">
-            <div class="icon" aria-hidden="true">✉️</div>
-            <div class="details">
-              <div class="label">Email</div>
-              <div class="value"><a href="mailto:info@elamandsonsrepair.com">info@elamandsonsrepair.com</a></div>
-            </div>
-          </div>
+          <!-- Email removed — not yet configured -->
           <div class="contact-item">
             <div class="icon" aria-hidden="true">📍</div>
             <div class="details">
@@ -765,6 +759,7 @@
           </div>
         </address>
       </div>
+      <!--
       <form class="contact-form fade-up" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="event.preventDefault(); this.submit(); alert('Thank you! We\'ll be in touch within 24 hours.');">
         <input type="hidden" name="form-name" value="contact">
         <p class="hidden" style="display:none;"><label>Don't fill this out: <input type="text" name="bot-field"></label></p>
@@ -788,6 +783,7 @@
         <textarea name="message" placeholder="Tell us about your project..." aria-label="Project description"></textarea>
         <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send Request</button>
       </form>
+      -->
     </div>
   </div>
 </section>
