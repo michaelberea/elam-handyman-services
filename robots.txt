@@ -2,3 +2,30 @@ User-agent: *
 Allow: /
 
 Sitemap: https://elamandsonsrepair.com/sitemap.xml
+
+# SEO/AEO Optimization: Explicitly allow AI search engine crawlers for Answer Engine Optimization
+# These bots power ChatGPT, Perplexity, Google SGE, Claude, and other AI answer engines
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
