@@ -831,17 +831,58 @@
   /* ─── FOOTER ─── */
   footer {
     background: #0a1120;
-    padding: 32px 24px;
+    padding: 40px 24px 28px;
     text-align: center;
     border-top: 3px solid var(--orange);
   }
 
-  footer p {
-    color: var(--steel-dark);
+  .footer-nap {
+    margin-bottom: 20px;
+  }
+
+  .footer-nap p {
+    color: var(--steel-light);
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+
+  .footer-nap strong { color: var(--white); }
+
+  .footer-nap a {
+    color: var(--orange);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-nap a:hover { color: var(--orange-bright); }
+
+  .footer-areas {
+    color: var(--steel-dark) !important;
+    font-size: 0.85rem !important;
+  }
+
+  .footer-links {
+    margin-top: 14px;
     font-size: 0.85rem;
   }
 
-  footer p span { color: var(--orange); }
+  .footer-links a {
+    color: var(--steel-dark);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--orange); }
+
+  .footer-copy {
+    color: var(--steel-dark);
+    font-size: 0.8rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 16px;
+    margin-top: 16px;
+  }
+
+  .footer-copy span { color: var(--orange); }
 
   /* ─── ANIMATIONS ─── */
   .fade-up {
