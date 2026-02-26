@@ -861,7 +861,13 @@
     font-size: 0.85rem !important;
   }
 
-  .footer-links {
+  nav.footer-links {
+    position: static;
+    width: auto;
+    background: none;
+    border: none;
+    backdrop-filter: none;
+    height: auto;
     margin-top: 14px;
     font-size: 0.85rem;
   }
